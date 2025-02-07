@@ -19,8 +19,19 @@ const findById = async (id) => {
   return people;
 }
 
+const update = (person, id) => conn.execute(
+    `UPDATE people
+      SET password = ?, weight = ?, height = ?
+      WHERE id = ?`,
+      [person.password, person.weight, person.height, id],
+  );
+
+const remove = (id) => conn.execute(`DELETE FROM people WHERE id = ?`, [id]);
+
 module.exports = {
   insert,
   findAll,
-  findById
+  findById,
+  update,
+  remove
 };
