@@ -4,13 +4,13 @@ const insert = (person) => conn.execute(
   `INSERT INTO people
     (first_name, last_name, birthday, email, password, gender, weight, height)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-  [person.firstName, person.lastName, person.birthday, person.email,
-    person.password, person.gender, person.weight, person.height],
+  [person.first_name, person.last_name, person.birthday, person.email,  // ⬅️ Aqui estava errado!
+    person.password, person.gender, person.weight ?? null, person.height ?? null],
 );
+
 
 const findAll = async () => {
   const [peoples] = await conn.execute(`SELECT * FROM people`);
-  console.log(peoples);
   return peoples;
 }
 
