@@ -1,5 +1,6 @@
 const express = require('express');
 const peoploRoutes = require('./routes/peopleRoutes');
+const loginRoutes = require('./routes/loginRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -14,5 +15,6 @@ app.get('/', (req, res) => {res.status(200).json({message: 'Hello World'})});
 
 app.use(express.json());
 app.use('/cadastro', peoploRoutes);
+app.use('/login', loginRoutes);
 
 module.exports = app;

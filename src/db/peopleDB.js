@@ -19,6 +19,11 @@ const findById = async (id) => {
   return people;
 }
 
+const findByEmail = async (email) => {
+  const [people] = await conn.execute(`SELECT * FROM people WHERE email = ?`, [email]);
+  return people;
+}
+
 const update = (person, id) => conn.execute(
     `UPDATE people
       SET password = ?, weight = ?, height = ?
@@ -32,6 +37,7 @@ module.exports = {
   insert,
   findAll,
   findById,
+  findByEmail,
   update,
   remove
 };

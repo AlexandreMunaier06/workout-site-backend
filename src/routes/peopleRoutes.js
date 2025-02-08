@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   const person = req.body;
   try {
     const [result] = await peopleDB.insert(person);
-    res.status(201).json({message: `Pessoa cadastrada com sucesso com o id ${result.id}`});
+    res.status(201).json({message: `Um viado foi cadastrado com sucesso`});
   } catch (error) {
     res.status(500).json({ message: 'Erro ao cadastrar', error: error.message });
   }
