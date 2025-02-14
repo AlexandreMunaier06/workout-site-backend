@@ -2,10 +2,10 @@ const conn = require('./connection');
 
 const insert = (person) => conn.execute(
   `INSERT INTO people
-    (first_name, last_name, birthday, email, password, gender, weight, height)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-  [person.first_name, person.last_name, person.birthday, person.email,  // ⬅️ Aqui estava errado!
-    person.password, person.gender, person.weight ?? null, person.height ?? null],
+    (first_name, last_name, birthday, email, password, gender)
+    VALUES (?, ?, ?, ?, ?, ?)`,
+  [person.first_name, person.last_name, person.birthday, person.email,
+    person.password, person.gender],
 );
 
 
